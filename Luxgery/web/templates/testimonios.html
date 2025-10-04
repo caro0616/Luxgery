@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Testimonios | Luxgery{% endblock %}
+{% block content %}
+<section class="testimonios">
+  <div class="container">
+    <h2>Testimonios</h2>
+    <div class="testimonios-grid">
+
+      <div class="testimonio-card">
+        <img src="{% static 'img/testimonios/paciente1.jpg' %}" alt="Ana P." class="testimonio-img">
+        <p>"Excelente atención, me sentí muy tranquila con el proceso."</p>
+        <span>- Ana P.</span>
+      </div>
+
+      <div class="testimonio-card">
+        <img src="{% static 'img/testimonios/paciente2.jpg' %}" alt="Luis G." class="testimonio-img">
+        <p>"Profesionales y atentos. Recomendados."</p>
+        <span>- Luis G.</span>
+      </div>
+
+      <div class="testimonio-card">
+        <img src="{% static 'img/testimonios/paciente3.jpg' %}" alt="María R." class="testimonio-img">
+        <p>"Un servicio impecable, todo muy organizado y seguro."</p>
+        <span>- María R.</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

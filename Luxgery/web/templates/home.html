@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+{% block title %}Inicio | Luxgery{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-inner">
+        <h1>Tu salud, nuestro compromiso</h1>
+        <p>Luxgery ofrece servicios médicos y estéticos con un enfoque humano y profesional.</p>
+        <a href="{% url 'services' %}" class="btn">Ver servicios</a>
+    </div>
+</section>
+<section class="intro">
+    <div class="container">
+        <h2>Bienvenido a Luxgery</h2>
+        <p>Atendemos a pacientes nacionales e internacionales con estándares de calidad y seguridad. Explora nuestros servicios o contáctanos para más información.</p>
+    </div>
+</section>
+{% endblock %}
