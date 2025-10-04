@@ -8,36 +8,78 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+
+    <!-- ====== NAVBAR ====== -->
     <header>
-        <nav class="nav">
-            <div class="logo">
-                <img src="{% static 'img/luxgery.png' %}" alt="Luxgery Logo" class="logo-img">
-            </div>
-            <ul class="nav-links">
+        <nav class="navbar">
+            <ul class="nav-links left">
                 <li><a href="{% url 'home' %}">Inicio</a></li>
-                <li><a href="{% url 'services' %}">Servicios</a></li>
-                <li><a href="{% url 'about' %}">Nosotros</a></li>
                 <li><a href="{% url 'testimonios' %}">Testimonios</a></li>
+            </ul>
+
+            <div class="nav-logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/luxgery.png' %}" alt="Luxgery Logo" class="logo-img">
+                </a>
+            </div>
+
+            <ul class="nav-links right">
+                <li><a href="{% url 'about' %}">Nosotros</a></li>
                 <li><a href="{% url 'contacto' %}">Contacto</a></li>
             </ul>
+
+            <div class="nav-social">
+                <a href="#" target="_blank"><img src="{% static 'img/facebook.svg' %}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/luxgery.us/" target="_blank"><img src="{% static 'img/instagram.svg' %}" alt="Instagram"></a>
+            </div>
         </nav>
     </header>
 
+    <!-- ====== CONTENIDO ====== -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
+    <!-- ====== FOOTER ====== -->
     <footer class="footer">
-        <div class="footer-inner">
-            <div>☎️ +57 324 2073903</div>
-            <div class="social">Síguenos:
-    <a href="#" aria-label="Facebook" target="_blank">Facebook</a> ·
-    <a href="https://www.instagram.com/luxgery.us/" aria-label="Instagram" target="_blank">Instagram</a> ·
-    <a href="#" aria-label="LinkedIn" target="_blank">LinkedIn</a>
-</div>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="{% static 'img/luxgery.png' %}" alt="Luxgery Logo">
+                <p>IPS especializada en medicina estética y cirugía plástica con atención humana y profesional.</p>
+            </div>
 
+            <div class="footer-column">
+                <h3>Ubicación</h3>
+                <p>Cra 43A #34,<br> Torre Médica Sur, CC Almacentro,<br> Medellín - Colombia</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Horario de atención</h3>
+                <p>Lunes a Viernes<br>8:00am - 6:00pm</p>
+                <p>Sábados<br>8:00am - 12:00pm</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <p>Soluciona tus dudas: +57 324 2073903</p>
+            </div>
         </div>
-        <div class="copyright">&copy; 2025 Luxgery. Todos los derechos reservados.</div>
+
+        <div class="footer-bottom">
+            <div class="footer-social">
+                <p>Síguenos</p>
+                <a href="#" target="_blank"><img src="{% static 'img/facebook.svg' %}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/luxgery.us/" target="_blank"><img src="{% static 'img/instagram.svg' %}" alt="Instagram"></a>
+            </div>
+            <p>&copy; 2025 Luxgery. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <!-- ====== BOTÓN WHATSAPP ====== -->
+    <a href="https://wa.me/573242073903?text=¡Hola!%20Estoy%20interesado%20en%20sus%20servicios." 
+       class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <img src="{% static 'img/whatsapp.svg' %}" alt="WhatsApp" />
+    </a>
+
 </body>
 </html>

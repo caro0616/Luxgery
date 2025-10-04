@@ -1,18 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
 
-{% extends "base.html" %}
 {% block title %}Inicio | Luxgery{% endblock %}
+
 {% block content %}
-<section class="hero">
-    <div class="hero-inner">
-        <h1>Tu salud, nuestro compromiso</h1>
-        <p>Luxgery ofrece servicios médicos y estéticos con un enfoque humano y profesional.</p>
-        <a href="{% url 'services' %}" class="btn">Ver servicios</a>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero-home" style="background-image: url('{% static 'img/quirofano.jpg' %}');">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Tu experiencia médica sin preocupaciones</h1>
+      <p>Nos encargamos de cada detalle para que tú solo pienses en tu bienestar.</p>
+      <a href="{% url 'contacto' %}" class="btn">Contáctanos</a>
     </div>
+  </div>
 </section>
-<section class="intro">
-    <div class="container">
-        <h2>Bienvenido a Luxgery</h2>
-        <p>Atendemos a pacientes nacionales e internacionales con estándares de calidad y seguridad. Explora nuestros servicios o contáctanos para más información.</p>
+
+<!-- ===== ABOUT / SERVICES SECTION ===== -->
+<section class="about-services">
+  <div class="container">
+    <h2>¿Qué hacemos?</h2>
+    <p class="subtitle">Ofrecemos una gestión médica integral para pacientes internacionales</p>
+
+    <div class="services-carousel">
+      <div class="carousel-track">
+        <!-- Tarjetas duplicadas para movimiento infinito -->
+        <div class="service-card">
+          <img src="{% static 'img/flight.svg' %}" alt="Vuelos">
+          <h3>Gestión de vuelos</h3>
+          <p>Coordinamos la compra de tus tiquetes aéreos para que llegues sin preocupaciones.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="{% static 'img/surgery.svg' %}" alt="Cirugías">
+          <h3>Agendamiento de procedimientos</h3>
+          <p>Reservamos tus procedimientos con clínicas y especialistas certificados.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="{% static 'img/recovery.svg' %}" alt="Recovery House">
+          <h3>Recovery House</h3>
+          <p>Te hospedamos en espacios confortables ideales para tu recuperación postoperatoria.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="{% static 'img/transport.svg' %}" alt="Transporte">
+          <h3>Transporte y acompañamiento</h3>
+          <p>Ofrecemos transporte seguro desde tu llegada hasta tus citas médicas.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="{% static 'img/food.svg' %}" alt="Comidas">
+          <h3>Alimentación personalizada</h3>
+          <p>Nos encargamos de tu dieta según tus necesidades médicas durante el proceso.</p>
+        </div>
+
+        <!-- Duplicados para efecto infinito -->
+        <div class="service-card">
+          <img src="{% static 'img/flight.svg' %}" alt="Vuelos">
+          <h3>Gestión de vuelos</h3>
+          <p>Coordinamos la compra de tus tiquetes aéreos para que llegues sin preocupaciones.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="{% static 'img/surgery.svg' %}" alt="Cirugías">
+          <h3>Agendamiento de procedimientos</h3>
+          <p>Reservamos tus procedimientos con clínicas y especialistas certificados.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="{% static 'img/recovery.svg' %}" alt="Recovery House">
+          <h3>Recovery House</h3>
+          <p>Te hospedamos en espacios confortables ideales para tu recuperación postoperatoria.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="{% static 'img/transport.svg' %}" alt="Transporte">
+          <h3>Transporte y acompañamiento</h3>
+          <p>Ofrecemos transporte seguro desde tu llegada hasta tus citas médicas.</p>
+        </div>
+
+        <div class="service-card">
+          <img src="{% static 'img/food.svg' %}" alt="Comidas">
+          <h3>Alimentación personalizada</h3>
+          <p>Nos encargamos de tu dieta según tus necesidades médicas durante el proceso.</p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
+
 {% endblock %}
