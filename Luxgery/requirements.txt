@@ -1,18 +1,6 @@
-# Framework principal
-Django>=4.0,<5.0
-
-# Servidor web para producción
+Django>=5.0
 gunicorn
-
-# Manejo de variables de entorno y base de datos
-python-dotenv
-dj-database-url
-
-# Servir archivos estáticos (Render lo necesita)
-whitenoise
-
-# PostgreSQL driver (Render usa PostgreSQL por defecto)
 psycopg2-binary
-
-# Seguridad y compatibilidad
-requests
+dj-database-url
+whitenoise
+python-dotenv
