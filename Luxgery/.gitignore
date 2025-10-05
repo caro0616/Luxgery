@@ -1,0 +1,28 @@
+# --- Entornos virtuales ---
+venv/
+.env/
+*.env
+
+# --- Archivos de base de datos locales ---
+db.sqlite3
+
+# --- Archivos compilados de Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Archivos estáticos recolectados ---
+staticfiles/
+media/
+
+# --- Archivos de IDEs ---
+.vscode/
+.idea/
+
+# --- Archivos del sistema ---
+.DS_Store
+Thumbs.db
+
+# --- Otros ---
+*.log
