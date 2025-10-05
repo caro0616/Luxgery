@@ -1,1 +1,1 @@
-web: gunicorn Luxgery.wsgi
+web: gunicorn Luxgery.Luxgery.wsgi:application
