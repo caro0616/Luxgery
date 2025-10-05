@@ -38,13 +38,20 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-/* Logo izquierda */
+/* ===== LOGO HEADER ===== */
 .nav-left img.logo-img,
 .nav-logo img {
-  height: 60px;
+  height: 100px !important;
   width: auto;
   object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  display: block;
+  transition: transform 0.3s ease;
   cursor: pointer;
+}
+
+.nav-left img.logo-img:hover {
+  transform: scale(1.05);
 }
 
 /* Menú central */
@@ -204,11 +211,6 @@ body {
   color: var(--muted);
 }
 
-.testimonio-card span {
-  font-size: 0.95rem;
-  color: var(--light);
-}
-
 /* --- FOOTER --- */
 .footer {
   background: #f1f5f8;
@@ -225,14 +227,22 @@ body {
   margin: 0 auto 40px;
 }
 
+/* ===== LOGO FOOTER ===== */
 .footer-logo img {
-  height: 60px;
-  margin-bottom: 10px;
+  height: 120px !important;
+  width: auto;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  margin-bottom: 15px;
+  display: block;
 }
 
 .footer-logo p {
-  font-size: 14px;
-  color: var(--light);
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin-top: 8px;
 }
 
 .footer-column h3 {
@@ -295,12 +305,17 @@ body {
   }
 }
 
-@media (max-width: 700px) {
-  .hero h1 {
-    font-size: 32px;
+@media (max-width: 768px) {
+  .nav-left img.logo-img {
+    height: 75px !important;
   }
-  .footer-container {
-    grid-template-columns: 1fr;
+
+  .footer-logo img {
+    height: 90px !important;
+  }
+
+  .footer-logo p {
+    font-size: 14px;
   }
 }
 
@@ -324,7 +339,7 @@ body {
 .whatsapp-float img {
   width: 38px;
   height: 38px;
-  filter: brightness(0) invert(1); /* blanco si el SVG es verde */
+  filter: brightness(0) invert(1);
 }
 
 .whatsapp-float:hover {
@@ -578,6 +593,7 @@ body {
     max-width: 100%;
   }
 }
+
 /* --- ABOUT / NOSOTROS --- */
 .about-section {
   padding: 80px 20px;
@@ -640,7 +656,6 @@ body {
   object-fit: cover;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .about-container {
     flex-direction: column;
