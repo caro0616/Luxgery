@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -12,30 +12,38 @@
     <!-- ====== NAVBAR ====== -->
     <header>
         <nav class="navbar">
-            <ul class="nav-links left">
-                <li><a href="{% url 'home' %}">Inicio</a></li>
-                <li><a href="{% url 'testimonios' %}">Testimonios</a></li>
-            </ul>
 
-            <div class="nav-logo">
+            <!-- LEFT LOGO -->
+            <div class="nav-left">
                 <a href="{% url 'home' %}">
                     <img src="{% static 'img/luxgery.png' %}" alt="Luxgery Logo" class="logo-img">
                 </a>
             </div>
 
-            <ul class="nav-links right">
-                <li><a href="{% url 'about' %}">Nosotros</a></li>
-                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            <!-- CENTER MENU -->
+            <ul class="nav-menu">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'testimonios' %}">Testimonials</a></li>
+                <li><a href="{% url 'contacto' %}">Contact Us</a></li>
             </ul>
 
+            <!-- RIGHT SOCIAL ICONS -->
             <div class="nav-social">
-                <a href="#" target="_blank"><img src="{% static 'img/facebook.svg' %}" alt="Facebook"></a>
+                <a href="https://www.facebook.com/profile.php?id=61581656106854" target="_blank"><img src="{% static 'img/facebook.svg' %}" alt="Facebook"></a>
                 <a href="https://www.instagram.com/luxgery.us/" target="_blank"><img src="{% static 'img/instagram.svg' %}" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@luxgery" target="_blank"><img src="{% static 'img/tiktok.svg' %}" alt="TikTok"></a>
+                {% comment %} 
+                <a href="https://www.linkedin.com/company/luxgery/" target="_blank">
+                    <img src="{% static 'img/linkedin.svg' %}" alt="LinkedIn">
+                </a> 
+                {% endcomment %}
             </div>
+
         </nav>
     </header>
 
-    <!-- ====== CONTENIDO ====== -->
+    <!-- ====== MAIN CONTENT ====== -->
     <main>
         {% block content %}{% endblock %}
     </main>
@@ -45,41 +53,60 @@
         <div class="footer-container">
             <div class="footer-logo">
                 <img src="{% static 'img/luxgery.png' %}" alt="Luxgery Logo">
-                <p>IPS especializada en medicina estética y cirugía plástica con atención humana y profesional.</p>
+                <p>Company dedicated to medical tourism in Medellín, Colombia.</p>
             </div>
 
             <div class="footer-column">
-                <h3>Ubicación</h3>
+                <h3>Location</h3>
                 <p>Cra 43A #34,<br> Torre Médica Sur, CC Almacentro,<br> Medellín - Colombia</p>
             </div>
 
             <div class="footer-column">
-                <h3>Horario de atención</h3>
-                <p>Lunes a Viernes<br>8:00am - 6:00pm</p>
-                <p>Sábados<br>8:00am - 12:00pm</p>
+                <h3>Business Hours</h3>
+                <p>Monday to Friday<br>8:00am - 6:00pm</p>
+                <p>Saturday<br>8:00am - 12:00pm</p>
             </div>
 
             <div class="footer-column">
-                <h3>Contacto</h3>
-                <p>Soluciona tus dudas: +57 324 2073903</p>
+                <h3>Contact</h3>
+                <p>Get in touch: <a href="https://wa.me/573161297843" target="_blank">+57 316 1297843</a></p>
+                <p>Email: <a href="mailto:info@luxgery.com">info@luxgery.com</a></p>
             </div>
         </div>
 
         <div class="footer-bottom">
             <div class="footer-social">
-                <p>Síguenos</p>
-                <a href="#" target="_blank"><img src="{% static 'img/facebook.svg' %}" alt="Facebook"></a>
+                <p>Follow us</p>
+                <a href="https://www.facebook.com/profile.php?id=61581656106854" target="_blank"><img src="{% static 'img/facebook.svg' %}" alt="Facebook"></a>
                 <a href="https://www.instagram.com/luxgery.us/" target="_blank"><img src="{% static 'img/instagram.svg' %}" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@luxgery" target="_blank"><img src="{% static 'img/tiktok.svg' %}" alt="TikTok"></a>
+                {% comment %} 
+                <a href="https://www.linkedin.com/company/luxgery/" target="_blank">
+                    <img src="{% static 'img/linkedin.svg' %}" alt="LinkedIn">
+                </a> 
+                {% endcomment %}
             </div>
-            <p>&copy; 2025 Luxgery. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Luxgery. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- ====== BOTÓN WHATSAPP ====== -->
-    <a href="https://wa.me/573242073903?text=¡Hola!%20Estoy%20interesado%20en%20sus%20servicios." 
+    <!-- ====== WHATSAPP BUTTON ====== -->
+    <a href="https://wa.me/573161297843?text=Hello!%20I’m%20interested%20in%20your%20services." 
        class="whatsapp-float" target="_blank" aria-label="WhatsApp">
         <img src="{% static 'img/whatsapp.svg' %}" alt="WhatsApp" />
     </a>
+
+    <!-- ====== SCROLL EFFECT SCRIPT ====== -->
+    <script>
+      window.addEventListener("scroll", function() {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    </script>
 
 </body>
 </html>

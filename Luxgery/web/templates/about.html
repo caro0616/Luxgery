@@ -1,12 +1,39 @@
 {% extends "base.html" %}
-{% block title %}Nosotros | Luxgery{% endblock %}
+{% load static %}
+{% block title %}About Us | Luxgery{% endblock %}
+
 {% block content %}
-<section class="about">
-  <div class="about-overlay">
-    <div class="about-box">
-      <h2>Sobre Luxgery</h2>
-      <p>Somos una empresa dedicada a la gestión de servicios médicos y estéticos. Nuestro objetivo es ofrecer atención de calidad, segura y con un trato humano.</p>
-      <p>Contamos con profesionales experimentados y procesos pensados para la comodidad y tranquilidad de nuestros pacientes.</p>
+<section class="about-section">
+  <div class="container about-container">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        At Luxgery, we specialize in providing a comprehensive aesthetic tourism experience in Medellín, assisting international patients throughout their entire journey — from travel planning to full recovery.
+      </p>
+      <p>
+        Our commitment is to offer peace of mind, comfort, and full support by taking care of every detail so that each patient can focus solely on their well-being.
+      </p>
+
+      <h3>What we offer:</h3>
+      <ul class="about-list">
+        <li>Flight management and transfer coordination.</li>
+        <li>Surgery scheduling with trusted specialists.</li>
+        <li>Search and booking of suitable recovery houses.</li>
+        <li>Organization of meals and daily transportation.</li>
+        <li>Personalized assistance throughout the entire process.</li>
+      </ul>
+
+      <p>
+        At Luxgery, we work hand in hand with top specialists in aesthetic procedures and postoperative recovery, ensuring the highest standards of quality and safety at every stage.
+      </p>
+      <p>
+        Thanks to these strategic partnerships, we are supported by renowned institutions such as our main ally 
+        <a href="https://darienips.com/" target="_blank" rel="noopener noreferrer">Darien IPS</a>.
+      </p>
+    </div>
+
+    <div class="about-image">
+      <img src="{% static 'img/doctor.jpeg' %}" alt="Our medical team">
     </div>
   </div>
 </section>
