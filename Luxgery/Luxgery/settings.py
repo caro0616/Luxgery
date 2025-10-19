@@ -1,80 +1,97 @@
 from pathlib import Path
 import os
-import dj_database_url  # 👈 nuevo
+import dj_database_url
+from django.utils.translation import gettext_lazy as _
 
-# --- BASE DIR ---
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# --- SEGURIDAD ---
-SECRET_KEY = 'django-insecure-replace-this-in-production'
-DEBUG = False  # 👈 debe ser False en Render
+SECRET_KEY = "django-insecure-replace-this-in-production"
+
+DEBUG = False
+
 ALLOWED_HOSTS = ['luxgery.onrender.com', 'luxgery.com', 'www.luxgery.com']
 
-# --- APPS ---
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'web',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "web",
 ]
 
-# --- MIDDLEWARE ---
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # 👈 agregado
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",  # 👈 Para manejo de idiomas
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-# --- URLS ---
-ROOT_URLCONF = 'Luxgery.urls'
+ROOT_URLCONF = "Luxgery.urls"
 
-# --- TEMPLATES ---
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'web', 'templates')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [os.path.join(BASE_DIR, "web", "templates")],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-# --- WSGI ---
-WSGI_APPLICATION = 'Luxgery.wsgi.application'
+WSGI_APPLICATION = "Luxgery.wsgi.application"
 
-# --- BASE DE DATOS ---
 DATABASES = {
-    'default': dj_database_url.config(default=f"sqlite:///{os.path.join(BASE_DIR, 'db.sqlite3')}")
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 
-# --- VALIDADORES DE CONTRASEÑAS ---
 AUTH_PASSWORD_VALIDATORS = []
 
-# --- LOCALIZACIÓN ---
-LANGUAGE_CODE = 'es-CO'
-TIME_ZONE = 'America/Bogota'
+# 🌎 Configuración de idioma
+LANGUAGE_CODE = "en"  # 👈 Por defecto inglés
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+TIME_ZONE = "America/Bogota"
 
-# --- ARCHIVOS ESTÁTICOS ---
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'web', 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 👈 necesario para Render
+# 🗣️ Idiomas disponibles
+LANGUAGES = [
+    ("en", _("English")),
+    ("es", _("Spanish")),
+]
 
-# WhiteNoise para servir archivos estáticos comprimidos
+# 📁 Directorio donde se guardarán las traducciones
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale"),
+]
+
+# 🖼️ Archivos estáticos
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "web", "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+# 📧 Configuración de correo
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "Luxgery.info@gmail.com"
+EMAIL_HOST_PASSWORD = "PON_AQUI_TU_CONTRASEÑA_DE_APLICACIÓN"
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
