@@ -127,7 +127,7 @@
                 <img src="{% static 'img/tiktok.svg' %}" alt="TikTok">
             </a>
 
-            <!-- 🌎 LANGUAGE DROPDOWN -->
+            <!-- 🌎 LANGUAGE DROPDOWN (FIXED) -->
             <div class="language-dropdown" id="languageDropdown">
                 <button class="language-btn" type="button" id="currentLangBtn">
                     <img 
@@ -142,17 +142,19 @@
                 </button>
 
                 <div class="language-menu">
-                    <form action="{% url 'set_language' %}" method="post">
+                    <!-- English -->
+                    <form action="/i18n/setlang/" method="post">
                         {% csrf_token %}
-                        <input name="next" type="hidden" value="{{ request.path }}">
+                        <input name="next" type="hidden" value="/">
                         <button type="submit" name="language" value="en">
                             <img src="{% static 'img/us-flag.png' %}" alt="English">
                             English
                         </button>
                     </form>
-                    <form action="{% url 'set_language' %}" method="post">
+                    <!-- Spanish -->
+                    <form action="/i18n/setlang/" method="post">
                         {% csrf_token %}
-                        <input name="next" type="hidden" value="{{ request.path }}">
+                        <input name="next" type="hidden" value="/">
                         <button type="submit" name="language" value="es">
                             <img src="{% static 'img/co-flag.png' %}" alt="Español">
                             Español
@@ -217,11 +219,7 @@
   // Navbar scroll effect
   window.addEventListener("scroll", function() {
     const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
   });
 
   // Language dropdown toggle
@@ -234,12 +232,10 @@
   });
 
   document.addEventListener("click", (e) => {
-    if (!langDropdown.contains(e.target)) {
-      langDropdown.classList.remove("open");
-    }
+    if (!langDropdown.contains(e.target)) langDropdown.classList.remove("open");
   });
 
-  // Optional: reload after changing language
+  // Reload after language change (optional but improves UX)
   document.querySelectorAll('.language-menu form').forEach(form => {
     form.addEventListener('submit', () => {
       setTimeout(() => location.reload(), 300);
